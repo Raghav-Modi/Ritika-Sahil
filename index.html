@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation | Rahul & Anjali</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Great+Vibes&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles & Colors */
+        :root {
+            --maroon: #800000;
+            --gold: #d4af37;
+            --cream: #fdfbf7;
+            --dark-text: #333333;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Lato', sans-serif;
+            background-color: var(--cream);
+            color: var(--dark-text);
+            text-align: center;
+        }
+        h1, h2, h3 {
+            margin: 0;
+            font-weight: normal;
+        }
+        /* Hero Section */
+        .hero {
+            background-color: var(--maroon);
+            color: var(--cream);
+            padding: 100px 20px;
+            border-bottom: 5px solid var(--gold);
+        }
+        .invite-text {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .names {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4.5rem;
+            color: var(--gold);
+            margin: 20px 0;
+        }
+        .date {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+        /* Events Section */
+        .events-section {
+            padding: 60px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: var(--maroon);
+            margin-bottom: 40px;
+        }
+        .event-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        .event-card {
+            background: #fff;
+            border: 2px solid var(--gold);
+            border-radius: 10px;
+            padding: 30px 20px;
+            width: 250px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+        .event-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--maroon);
+            margin-bottom: 15px;
+        }
+        .event-detail {
+            margin: 10px 0;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        .icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        /* RSVP Section */
+        .rsvp {
+            background-color: #eee9dd;
+            padding: 60px 20px;
+            border-top: 2px solid var(--gold);
+        }
+        .rsvp p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        /* Mobile Responsiveness */
+        @media (max-width: 600px) {
+            .names { font-size: 3.5rem; }
+            .hero { padding: 60px 20px; }
+            .event-card { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <p class="invite-text">Together with their families</p>
+        <h1 class="names">Rahul & Anjali</h1>
+        <p class="invite-text">invite you to celebrate their wedding</p>
+        <h2 class="date">November 25th, 2026</h2>
+    </header>
+
+    <!-- EVENTS SECTION -->
+    <section class="events-section">
+        <h2 class="section-title">Wedding Itinerary</h2>
+        
+        <div class="event-grid">
+            <!-- Event 1 -->
+            <div class="event-card">
+                <div class="icon">✨</div>
+                <h3 class="event-title">Haldi</h3>
+                <p class="event-detail"><strong>Date:</strong> Nov 23, 2026</p>
+                <p class="event-detail"><strong>Time:</strong> 10:00 AM</p>
+                <p class="event-detail"><strong>Venue:</strong> The Grand Gardens, New Delhi</p>
+            </div>
+
+            <!-- Event 2 -->
+            <div class="event-card">
+                <div class="icon">🎶</div>
+                <h3 class="event-title">Sangeet</h3>
+                <p class="event-detail"><strong>Date:</strong> Nov 24, 2026</p>
+                <p class="event-detail"><strong>Time:</strong> 7:00 PM onwards</p>
+                <p class="event-detail"><strong>Venue:</strong> Royal Palace Banquet</p>
+            </div>
+
+            <!-- Event 3 -->
+            <div class="event-card">
+                <div class="icon">💍</div>
+                <h3 class="event-title">Wedding</h3>
+                <p class="event-detail"><strong>Date:</strong> Nov 25, 2026</p>
+                <p class="event-detail"><strong>Time:</strong> Baraat at 6:00 PM</p>
+                <p class="event-detail"><strong>Venue:</strong> The Grand Gardens, New Delhi</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP SECTION -->
+    <section class="rsvp">
+        <h2 class="section-title">RSVP</h2>
+        <p>Please let us know if you will be able to join us in our celebrations. Kindly RSVP by November 1st, 2026.</p>
+        <p><strong>Contact:</strong> +91 98765 43210 <br> <strong>Email:</strong> rsvp@rahulanjali.com</p>
+    </section>
+
+</body>
+</html>
