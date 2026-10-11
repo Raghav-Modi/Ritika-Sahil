@@ -10,21 +10,108 @@
         :root {
             --maroon: #800000;
             --gold: #d4af37;
-            --cream: #fdfbf7;
+            /* Update to a richer, warmer, "vibrant" cream/gold */
+            --cream: #fffcf0; 
+            --heart-color: rgba(212, 175, 55, 0.4); /* Faded gold for floating hearts */
             --dark-text: #333333;
         }
-        body {
+
+        /* Essential Reset and Layout */
+        body, html {
             margin: 0;
             padding: 0;
+            width: 100%;
+            height: 100%;
             font-family: 'Lato', sans-serif;
-            background-color: var(--cream);
-            color: var(--dark-text);
             text-align: center;
+            overflow-x: hidden;
         }
+
+        /* VIBRANT BACKGROUND WITH SHADOWED HEARTS LAYER */
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2; /* Keep it behind everything */
+            /* Vibrant Gradient Background */
+            background: linear-gradient(135deg, 
+                var(--cream) 0%, 
+                #fff7e6 40%, 
+                var(--cream) 70%, 
+                #fff7e6 100%
+            );
+        }
+
+        /* FLOATING HEARTS (THE SHAWDOWS) */
+        .floating-hearts-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Allows clicks through this layer */
+            z-index: -1; /* Above background, but below content */
+        }
+
+        .heart {
+            position: absolute;
+            background-color: var(--heart-color);
+            display: inline-block;
+            height: 10px;
+            margin: 0 10px;
+            width: 10px;
+            border-radius: 50%; /* Simplified shape for tiny floaters */
+            /* This gives it the "floating shadow" effect */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08); 
+            opacity: 0; /* Starts invisible */
+            animation: float-hearts linear infinite;
+        }
+
+        /* Defining different sizes and speeds of hearts for variety */
+        .heart:nth-child(1)  { left: 10%; width: 12px; height: 12px; animation-duration: 18s; animation-delay: 2s; }
+        .heart:nth-child(2)  { left: 25%; width: 8px;  height: 8px;  animation-duration: 25s; animation-delay: 1s; }
+        .heart:nth-child(3)  { left: 40%; width: 10px; height: 10px; animation-duration: 20s; animation-delay: 5s; }
+        .heart:nth-child(4)  { left: 55%; width: 14px; height: 14px; animation-duration: 15s; animation-delay: 0s; }
+        .heart:nth-child(5)  { left: 70%; width: 9px;  height: 9px;  animation-duration: 28s; animation-delay: 8s; }
+        .heart:nth-child(6)  { left: 85%; width: 11px; height: 11px; animation-duration: 22s; animation-delay: 3s; }
+        .heart:nth-child(7)  { left: 15%; width: 7px;  height: 7px;  animation-duration: 32s; animation-delay: 10s; }
+        .heart:nth-child(8)  { left: 95%; width: 13px; height: 13px; animation-duration: 19s; animation-delay: 6s; }
+        .heart:nth-child(9)  { left: 45%; width: 10px; height: 10px; animation-duration: 24s; animation-delay: 4s; }
+        .heart:nth-child(10) { left: 80%; width: 12px; height: 12px; animation-duration: 17s; animation-delay: 1s; }
+
+        /* KEYFRAMES FOR FLOATING EFFECT */
+        @keyframes float-hearts {
+            0% {
+                bottom: -20px;
+                transform: translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6; /* Gently fade in */
+            }
+            90% {
+                opacity: 0.6; /* Fades slightly out as it nears top */
+            }
+            100% {
+                bottom: 100%;
+                transform: translateX(30px); /* Drift to the right */
+                opacity: 0;
+            }
+        }
+
+        /* The actual site content needs a clear z-index */
+        .site-content {
+            position: relative;
+            z-index: 10;
+        }
+
         h1, h2, h3 {
             margin: 0;
             font-weight: normal;
         }
+
         /* Hero Section */
         .hero {
             background-color: var(--maroon);
@@ -32,79 +119,97 @@
             padding: 100px 20px;
             border-bottom: 5px solid var(--gold);
         }
+
         .invite-text {
             font-size: 1.2rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             margin-bottom: 20px;
         }
+
         .names {
             font-family: 'Great Vibes', cursive;
             font-size: 4.5rem;
             color: var(--gold);
             margin: 20px 0;
+            /* A subtle text shadow for the main names */
+            text-shadow: 0 4px 6px rgba(0,0,0,0.3);
         }
+
         .date {
             font-family: 'Cinzel', serif;
             font-size: 1.5rem;
             margin-top: 20px;
         }
+
         /* Events Section */
         .events-section {
             padding: 60px 20px;
             max-width: 900px;
             margin: 0 auto;
         }
+
         .section-title {
             font-family: 'Cinzel', serif;
             font-size: 2.5rem;
             color: var(--maroon);
             margin-bottom: 40px;
         }
+
         .event-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 30px;
         }
+
         .event-card {
-            background: #fff;
+            background: rgba(255, 255, 255, 0.9); /* Slightly translucent */
             border: 2px solid var(--gold);
             border-radius: 10px;
             padding: 30px 20px;
             width: 250px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
         .event-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
+
         .event-title {
             font-family: 'Cinzel', serif;
             font-size: 1.8rem;
             color: var(--maroon);
             margin-bottom: 15px;
         }
+
         .event-detail {
             margin: 10px 0;
             font-size: 1rem;
             line-height: 1.5;
+            color: var(--dark-text);
         }
+
         .icon {
             font-size: 24px;
             margin-bottom: 10px;
         }
+
         /* RSVP Section */
         .rsvp {
-            background-color: #eee9dd;
+            background-color: rgba(238, 233, 221, 0.9); /* Matching existing design */
             padding: 60px 20px;
             border-top: 2px solid var(--gold);
         }
+
         .rsvp p {
             font-size: 1.1rem;
             max-width: 600px;
             margin: 20px auto;
         }
+
         /* Mobile Responsiveness */
         @media (max-width: 600px) {
             .names { font-size: 3.5rem; }
@@ -115,54 +220,74 @@
 </head>
 <body>
 
-    <!-- HERO SECTION -->
-    <header class="hero">
-        <p class="invite-text">Together with their families</p>
-        <h1 class="names">Rahul & Anjali</h1>
-        <p class="invite-text">invite you to celebrate their wedding</p>
-        <h2 class="date">November 25th, 2026</h2>
-    </header>
+    <!-- 1. The Vibrant Background Gradient Layer -->
+    <div class="background-container"></div>
 
-    <!-- EVENTS SECTION -->
-    <section class="events-section">
-        <h2 class="section-title">Wedding Itinerary</h2>
-        
-        <div class="event-grid">
-            <!-- Event 1 -->
-            <div class="event-card">
-                <div class="icon">✨</div>
-                <h3 class="event-title">Haldi</h3>
-                <p class="event-detail"><strong>Date:</strong> Nov 23, 2026</p>
-                <p class="event-detail"><strong>Time:</strong> 10:00 AM</p>
-                <p class="event-detail"><strong>Venue:</strong> The Grand Gardens, New Delhi</p>
+    <!-- 2. The Floating Heart Shadow Layer -->
+    <div class="floating-hearts-layer">
+        <span class="heart"></span>
+        <span class="heart"></span>
+        <span class="heart"></span>
+        <span class="heart"></span>
+        <span class="heart"></span>
+        <span class="heart"></span>
+        <span class="heart"></span>
+        <span class="heart"></span>
+        <span class="heart"></span>
+        <span class="heart"></span>
+    </div>
+
+    <!-- 3. The Main Website Content (keeps z-index above) -->
+    <div class="site-content">
+        <!-- HERO SECTION -->
+        <header class="hero">
+            <p class="invite-text">Together with their families</p>
+            <h1 class="names">Rahul & Anjali</h1>
+            <p class="invite-text">invite you to celebrate their wedding</p>
+            <h2 class="date">November 25th, 2026</h2>
+        </header>
+
+        <!-- EVENTS SECTION -->
+        <section class="events-section">
+            <h2 class="section-title">Wedding Itinerary</h2>
+            
+            <div class="event-grid">
+                <!-- Event 1 -->
+                <div class="event-card">
+                    <div class="icon">✨</div>
+                    <h3 class="event-title">Haldi</h3>
+                    <p class="event-detail"><strong>Date:</strong> Nov 23, 2026</p>
+                    <p class="event-detail"><strong>Time:</strong> 10:00 AM</p>
+                    <p class="event-detail"><strong>Venue:</strong> The Grand Gardens, New Delhi</p>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="event-card">
+                    <div class="icon">🎶</div>
+                    <h3 class="event-title">Sangeet</h3>
+                    <p class="event-detail"><strong>Date:</strong> Nov 24, 2026</p>
+                    <p class="event-detail"><strong>Time:</strong> 7:00 PM onwards</p>
+                    <p class="event-detail"><strong>Venue:</strong> Royal Palace Banquet</p>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="event-card">
+                    <div class="icon">💍</div>
+                    <h3 class="event-title">Wedding</h3>
+                    <p class="event-detail"><strong>Date:</strong> Nov 25, 2026</p>
+                    <p class="event-detail"><strong>Time:</strong> Baraat at 6:00 PM</p>
+                    <p class="event-detail"><strong>Venue:</strong> The Grand Gardens, New Delhi</p>
+                </div>
             </div>
+        </section>
 
-            <!-- Event 2 -->
-            <div class="event-card">
-                <div class="icon">🎶</div>
-                <h3 class="event-title">Sangeet</h3>
-                <p class="event-detail"><strong>Date:</strong> Nov 24, 2026</p>
-                <p class="event-detail"><strong>Time:</strong> 7:00 PM onwards</p>
-                <p class="event-detail"><strong>Venue:</strong> Royal Palace Banquet</p>
-            </div>
-
-            <!-- Event 3 -->
-            <div class="event-card">
-                <div class="icon">💍</div>
-                <h3 class="event-title">Wedding</h3>
-                <p class="event-detail"><strong>Date:</strong> Nov 25, 2026</p>
-                <p class="event-detail"><strong>Time:</strong> Baraat at 6:00 PM</p>
-                <p class="event-detail"><strong>Venue:</strong> The Grand Gardens, New Delhi</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- RSVP SECTION -->
-    <section class="rsvp">
-        <h2 class="section-title">RSVP</h2>
-        <p>Please let us know if you will be able to join us in our celebrations. Kindly RSVP by November 1st, 2026.</p>
-        <p><strong>Contact:</strong> +91 98765 43210 <br> <strong>Email:</strong> rsvp@rahulanjali.com</p>
-    </section>
+        <!-- RSVP SECTION -->
+        <section class="rsvp">
+            <h2 class="section-title">RSVP</h2>
+            <p>Please let us know if you will be able to join us in our celebrations. Kindly RSVP by November 1st, 2026.</p>
+            <p><strong>Contact:</strong> +91 98765 43210 <br> <strong>Email:</strong> rsvp@rahulanjali.com</p>
+        </section>
+    </div> <!-- End .site-content -->
 
 </body>
 </html>
