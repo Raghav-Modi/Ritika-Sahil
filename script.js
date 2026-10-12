@@ -6,7 +6,7 @@ motionButton.addEventListener('click', () => {
   motionButton.textContent = paused ? 'Resume motion' : 'Pause motion';
 });
 const dialog = document.querySelector('#lightbox');
-const titles = ['A walk to remember', 'Our kind of happiness', 'Always, hand in hand'];
+const titles = ['Gallery photograph 1', 'Gallery photograph 2', 'Gallery photograph 3'];
 let currentPhoto = 0;
 function showPhoto(index) {
   currentPhoto = (index + titles.length) % titles.length;

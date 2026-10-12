@@ -1,8 +1,8 @@
-# Wedding invitation design sample
+# Ritika & Sahil — wedding invitation
 
-A responsive Indian wedding invitation in maroon, red, and antique gold. The sample includes Shri Ganesh and the Vakratunda shloka, couple and parent placeholders, vertically arranged Hindi event cards, a gently animated couple illustration, and a keyboard-accessible photo gallery.
+A responsive Indian wedding invitation in maroon, red, and antique gold. The sample includes Shri Ganesh and the Vakratunda shloka, Ritika and Sahil’s names and parents, vertically arranged Hindi event cards, a gently animated couple illustration, and a keyboard-accessible photo gallery.
 
-All names, dates, venues, and gallery photographs are placeholders. The Ganesh artwork, fictional couple illustration, and fictional gallery photographs were generated for this design sample. Event illustrations are local SVGs. There are no external runtime dependencies.
+Names, parents, dates, venues, and subevent timings are personalised. The couple illustration was generated from the user’s twirling photograph. Ganesh artwork and the current placeholder gallery photographs were generated for the design sample. The original three gallery photographs are pending upload as downloadable JPG/PNG files; their inline chat images are not available as files in the workspace. Event illustrations are local SVGs. There are no external runtime dependencies.
 
 ## Run locally
 
@@ -16,10 +16,18 @@ The page uses `index.html`, `style.css`, `script.js`, and local images in `asset
 
 ## Review
 
-Check desktop and mobile layouts, the three Hindi event cards, gallery opening and previous/next controls, Escape to close, keyboard focus, and the Pause motion control. The site respects the operating system's reduced-motion preference. Personal details and original photos can be inserted after design approval; the dancing illustration currently uses a gentle sway rather than articulated character animation.
+Check desktop and mobile layouts, the three Hindi event cards, gallery opening and previous/next controls, Escape to close, keyboard focus, and the Pause motion control. The site respects the operating system's reduced-motion preference. The original gallery photos can be inserted once supplied as files; the dancing illustration currently uses a gentle sway rather than articulated character animation.
 
 ## Background effects and music
 
 Soft floating gold stars decorate the invitation and follow the Pause motion control and reduced-motion preference. The local `assets/wedding-flute.mp3` is the user-supplied Namo Namo flute cover, looped quietly. A maroon-and-gold envelope opens the invitation and starts the music within the visitor’s tap or keyboard activation; a fixed Play music / Mute music control remains available. Muting pauses playback and is remembered in session storage when supported. No external audio service is required.
 
 The opening envelope blocks background interaction until opened and moves keyboard focus into the invitation afterward. Its opening animation respects reduced-motion settings. A previous session mute preference is retained. Without JavaScript the envelope stays hidden and the invitation remains accessible.
+
+## Celebration schedule
+
+- Bhajan Sandhya: Sunday, 15 November 2026, 5 PM; Priti Bhoj at 7:30 PM. Gaudham, Mata Mansa Devi Gaushala, Panchkula.
+- Sunehri Shaam: Thursday, 19 November 2026; Haldi at 3 PM, Mehendi at 4 PM, Sangeet at 7 PM. Raghav Hospital, Baltana.
+- Vivah: Saturday, 21 November 2026; Baraat at 2 PM, Varmala at 3 PM, Phere at 5 PM, Priti Bhoj at 7 PM. Red Bishop Convention Hall, Sector 1, Panchkula.
+
+Gallery captions are removed and frames use gold ornamental borders.
