@@ -32,3 +32,94 @@ dialog.addEventListener('keydown', event => {
   if (event.key === 'ArrowRight') { event.preventDefault(); showPhoto(currentPhoto + 1); }
   if (event.key === 'ArrowLeft') { event.preventDefault(); showPhoto(currentPhoto - 1); }
 });
+
+// Deterministic placement keeps the decorations stable between page loads.
+document.querySelectorAll('.hero, .welcome, .celebrations, .gallery-section, .blessings').forEach((section, sectionIndex) => {
+  const layer = document.createElement('div');
+  layer.className = 'star-layer';
+  layer.setAttribute('aria-hidden', 'true');
+  const count = section.classList.contains('hero') ? 28 : 12;
+  for (let index = 0; index < count; index++) {
+    const star = document.createElement('span');
+    star.className = 'floating-star';
+    star.textContent = index % 3 === 0 ? '✧' : '✦';
+    // Keep most of the hero's ornaments to the sides of the invitation.
+    const left = sectionIndex === 0
+      ? (index % 2 ? 77 + (index * 7 % 20) : 3 + (index * 7 % 20))
+      : 3 + (index * 31 + sectionIndex * 13) % 94;
+    star.style.left = `${left}%`;
+    star.style.top = `${8 + (index * 19 + sectionIndex * 11) % 83}%`;
+    star.style.fontSize = `${12 + index * 7 % 25}px`;
+    star.style.setProperty('--star-duration', `${12 + index % 11}s`);
+    star.style.setProperty('--star-delay', `${-(index * 3 % 19)}s`);
+    star.style.setProperty('--star-opacity', sectionIndex === 0 ? '.26' : '.13');
+    layer.append(star);
+  }
+  section.prepend(layer);
+});
+
+const backgroundMusic = document.querySelector('#background-music');
+const musicToggle = document.querySelector('#music-toggle');
+const musicLabel = document.querySelector('#music-label');
+const musicStatus = document.querySelector('#music-status');
+backgroundMusic.volume = 0.28;
+let musicPreference = null;
+try { musicPreference = sessionStorage.getItem('wedding-music'); } catch (_) { /* Storage is optional. */ }
+let playPending = false;
+function rememberMusic(value) {
+  musicPreference = value;
+  try { sessionStorage.setItem('wedding-music', value); } catch (_) { /* Playback works without storage. */ }
+}
+function updateMusicControl() {
+  const playing = !backgroundMusic.paused;
+  musicToggle.setAttribute('aria-pressed', String(playing));
+  musicToggle.setAttribute('aria-label', playing ? 'Mute background music' : 'Play background music');
+  musicLabel.textContent = playing ? 'Mute music' : 'Play music';
+}
+async function playMusic(explicit = false) {
+  if (playPending || (musicPreference === 'off' && !explicit)) return;
+  playPending = true;
+  try {
+    await backgroundMusic.play();
+    if (musicPreference === 'off' && !explicit) {
+      backgroundMusic.pause();
+      return;
+    }
+    if (explicit) rememberMusic('on');
+    musicStatus.textContent = 'Background music playing. Use Mute music to turn it off.';
+  } catch (_) {
+    // Autoplay restrictions are normal; leave a usable play button.
+    if (explicit) musicStatus.textContent = 'Music could not start. Please tap Play music to try again.';
+  } finally {
+    playPending = false;
+    updateMusicControl();
+  }
+}
+musicToggle.addEventListener('click', () => {
+  if (!backgroundMusic.paused || playPending) {
+    rememberMusic('off');
+    backgroundMusic.pause();
+    musicStatus.textContent = 'Background music muted.';
+    updateMusicControl();
+  } else {
+    playMusic(true);
+  }
+});
+backgroundMusic.addEventListener('play', updateMusicControl);
+backgroundMusic.addEventListener('pause', updateMusicControl);
+backgroundMusic.addEventListener('error', () => {
+  updateMusicControl();
+  musicStatus.textContent = 'Background music is unavailable. You can still explore the invitation.';
+});
+function startMusicOnInteraction(event) {
+  if (event.target.closest?.('#music-toggle')) return;
+  if (event.type === 'keydown' && !['Enter', ' '].includes(event.key)) return;
+  document.removeEventListener('pointerdown', startMusicOnInteraction);
+  document.removeEventListener('keydown', startMusicOnInteraction);
+  if (musicPreference !== 'off') playMusic();
+}
+document.addEventListener('pointerdown', startMusicOnInteraction);
+document.addEventListener('keydown', startMusicOnInteraction);
+// Play immediately where allowed, otherwise wait for the visitor's first tap.
+if (musicPreference !== 'off') playMusic();
+updateMusicControl();

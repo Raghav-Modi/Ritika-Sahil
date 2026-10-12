@@ -17,3 +17,7 @@ The page uses `index.html`, `style.css`, `script.js`, and local images in `asset
 ## Review
 
 Check desktop and mobile layouts, the three Hindi event cards, gallery opening and previous/next controls, Escape to close, keyboard focus, and the Pause motion control. The site respects the operating system's reduced-motion preference. Personal details and original photos can be inserted after design approval; the dancing illustration currently uses a gentle sway rather than articulated character animation.
+
+## Background effects and music
+
+Soft floating gold stars decorate the invitation and follow the Pause motion control and reduced-motion preference. The local `assets/wedding-melody.wav` is an original 48-second flute-style instrumental composition, looped quietly. Browsers that block autoplay start it on the first visitor interaction; a fixed Play music / Mute music control remains available. Muting pauses playback and is remembered in session storage when supported. No external audio service is required.
