@@ -20,4 +20,6 @@ Check desktop and mobile layouts, the three Hindi event cards, gallery opening a
 
 ## Background effects and music
 
-Soft floating gold stars decorate the invitation and follow the Pause motion control and reduced-motion preference. The local `assets/wedding-melody.wav` is an original 48-second flute-style instrumental composition, looped quietly. Browsers that block autoplay start it on the first visitor interaction; a fixed Play music / Mute music control remains available. Muting pauses playback and is remembered in session storage when supported. No external audio service is required.
+Soft floating gold stars decorate the invitation and follow the Pause motion control and reduced-motion preference. The local `assets/wedding-flute.mp3` is the user-supplied Namo Namo flute cover, looped quietly. A maroon-and-gold envelope opens the invitation and starts the music within the visitor’s tap or keyboard activation; a fixed Play music / Mute music control remains available. Muting pauses playback and is remembered in session storage when supported. No external audio service is required.
+
+The opening envelope blocks background interaction until opened and moves keyboard focus into the invitation afterward. Its opening animation respects reduced-motion settings. A previous session mute preference is retained. Without JavaScript the envelope stays hidden and the invitation remains accessible.

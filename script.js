@@ -111,15 +111,31 @@ backgroundMusic.addEventListener('error', () => {
   updateMusicControl();
   musicStatus.textContent = 'Background music is unavailable. You can still explore the invitation.';
 });
-function startMusicOnInteraction(event) {
-  if (event.target.closest?.('#music-toggle')) return;
-  if (event.type === 'keydown' && !['Enter', ' '].includes(event.key)) return;
-  document.removeEventListener('pointerdown', startMusicOnInteraction);
-  document.removeEventListener('keydown', startMusicOnInteraction);
-  if (musicPreference !== 'off') playMusic();
-}
-document.addEventListener('pointerdown', startMusicOnInteraction);
-document.addEventListener('keydown', startMusicOnInteraction);
-// Play immediately where allowed, otherwise wait for the visitor's first tap.
-if (musicPreference !== 'off') playMusic();
+// The envelope tap provides the browser gesture needed to start music.
+const envelopeScreen = document.querySelector('#envelope-screen');
+const invitationContent = document.querySelector('#invitation-content');
+const openEnvelope = document.querySelector('#open-envelope');
+let invitationOpened = false;
+envelopeScreen.hidden = false;
+invitationContent.inert = true;
+document.documentElement.classList.add('envelope-closed');
+openEnvelope.focus({ preventScroll: true });
+openEnvelope.addEventListener('click', () => {
+  if (invitationOpened) return;
+  invitationOpened = true;
+  // Call play synchronously within this trusted click, before any animation wait.
+  playMusic();
+  envelopeScreen.classList.add('opening');
+  openEnvelope.setAttribute('aria-disabled', 'true');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.setTimeout(() => {
+    envelopeScreen.hidden = true;
+    invitationContent.inert = false;
+    document.documentElement.classList.remove('envelope-closed');
+    window.scrollTo(0, 0);
+    const heading = document.querySelector('#couple-name');
+    heading.setAttribute('tabindex', '-1');
+    heading.focus({ preventScroll: true });
+  }, reducedMotion ? 0 : 1100);
+});
 updateMusicControl();

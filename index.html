@@ -7,6 +7,17 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<section id="envelope-screen" class="envelope-screen" role="dialog" aria-modal="true" aria-labelledby="envelope-title" hidden>
+  <p class="eyebrow">A little envelope. A lifetime of love.</p>
+  <h2 id="envelope-title" lang="hi">सप्रेम निमंत्रण</h2>
+  <p class="envelope-intro">A celebration awaits you inside.</p>
+  <button id="open-envelope" class="envelope-button" type="button" aria-label="Open the wedding invitation and start background music">
+    <span class="envelope-art" aria-hidden="true"><span class="envelope-letter">शुभ विवाह<br><span>With love, Bride & Groom</span></span><span class="envelope-pocket"></span><span class="envelope-flap"></span><span class="envelope-seal">श्री</span></span>
+    <span class="open-label">Tap to open <span aria-hidden="true">✦</span></span>
+  </button>
+  <p class="envelope-hint">Open your invitation with music.<br>You can mute it anytime.</p>
+</section>
+<div id="invitation-content">
 <a class="skip" href="#invitation">Skip to invitation</a>
 <div class="sample-note">DESIGN PREVIEW <span>·</span> Sample names & imagery. Your story comes next.</div>
 <header class="header"><a class="brand" href="#invitation" aria-label="Back to invitation">शुभ विवाह <span>✦</span></a><nav aria-label="Main navigation"><a href="#events">Celebrations</a><a href="#gallery">Our moments</a><a href="#blessings">With love</a></nav><button id="motion" aria-pressed="false" aria-label="Pause decorative animation">Pause motion</button></header>
@@ -37,9 +48,10 @@
 <section class="blessings" id="blessings"><div class="mini-couple"><img src="assets/couple.png" alt="The sample illustrated couple celebrating together" loading="lazy" width="1122" height="1402"></div><p class="eyebrow">With open hearts & endless joy</p><h2 lang="hi">आप आएँगे, तो खुशियाँ बढ़ जाएँगी।</h2><p>We’re saving a little space in our celebration just for you.</p><div class="ornament" aria-hidden="true">──── ✦ ────</div><p class="closing">With love,<br><span>Bride & Groom</span></p></section>
 </main>
 <footer><span lang="hi">शुभ विवाह</span><p>Made for a beautiful beginning.</p><a href="#invitation">Back to the invitation ↑</a></footer>
-<audio id="background-music" src="assets/wedding-melody.wav" loop preload="none"></audio>
+<audio id="background-music" src="assets/wedding-flute.mp3" loop preload="none"></audio>
 <button id="music-toggle" class="music-toggle" type="button" aria-pressed="false" aria-label="Play background music"><span aria-hidden="true">♫</span><span id="music-label">Play music</span></button>
 <p id="music-status" class="sr-only" role="status" aria-live="polite"></p>
 <dialog id="lightbox" aria-labelledby="lightbox-title"><div class="dialog-bar"><p id="lightbox-title">A walk to remember</p><button id="close-gallery" aria-label="Close photograph">✕</button></div><div class="enlarged-photo" role="img" aria-label="Enlarged sample pre-wedding photograph"></div><div class="dialog-controls"><button id="previous" aria-label="Previous photograph">← Previous</button><span id="photo-count">1 / 3</span><button id="next" aria-label="Next photograph">Next →</button></div><p class="dialog-note">Sample artwork — replace with your own photos.</p></dialog>
+</div>
 <script src="script.js"></script>
 </body></html>
