@@ -6,12 +6,14 @@ motionButton.addEventListener('click', () => {
   motionButton.textContent = paused ? 'Resume motion' : 'Pause motion';
 });
 const dialog = document.querySelector('#lightbox');
-const titles = ['Gallery photograph 1', 'Gallery photograph 2', 'Gallery photograph 3'];
+const galleryPhotos = Array.from(document.querySelectorAll('.gallery .photo-art'));
+const titles = galleryPhotos.map((photo, index) => `Photograph ${index + 1}`);
 let currentPhoto = 0;
 function showPhoto(index) {
   currentPhoto = (index + titles.length) % titles.length;
-  document.querySelector('.enlarged-photo').style.backgroundPosition = `${currentPhoto * 50}% 50%`;
-  document.querySelector('.enlarged-photo').setAttribute('aria-label', titles[currentPhoto] + ' — sample pre-wedding photograph');
+  const enlargedPhoto = document.querySelector('.enlarged-photo');
+  enlargedPhoto.src = galleryPhotos[currentPhoto].src;
+  enlargedPhoto.alt = galleryPhotos[currentPhoto].alt;
   document.querySelector('#lightbox-title').textContent = titles[currentPhoto];
   document.querySelector('#photo-count').textContent = `${currentPhoto + 1} / ${titles.length}`;
 }

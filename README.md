@@ -2,7 +2,7 @@
 
 A responsive Indian wedding invitation in maroon, red, and antique gold. The sample includes Shri Ganesh and the Vakratunda shloka, Ritika and Sahil’s names and parents, vertically arranged Hindi event cards, a gently animated couple illustration, and a keyboard-accessible photo gallery.
 
-Names, parents, dates, venues, and subevent timings are personalised. The couple illustration was generated from the user’s twirling photograph. Ganesh artwork and the current placeholder gallery photographs were generated for the design sample. The original three gallery photographs are pending upload as downloadable JPG/PNG files; their inline chat images are not available as files in the workspace. Event illustrations are local SVGs. There are no external runtime dependencies.
+Names, parents, dates, venues, and subevent timings are personalised. The couple illustration was generated from the user’s twirling photograph. Ganesh artwork was generated for the design sample. The gallery displays the three original WhatsApp JPEG photographs supplied in assets/. Event illustrations are local SVGs. There are no external runtime dependencies.
 
 ## Run locally
 
@@ -16,7 +16,7 @@ The page uses `index.html`, `style.css`, `script.js`, and local images in `asset
 
 ## Review
 
-Check desktop and mobile layouts, the three Hindi event cards, gallery opening and previous/next controls, Escape to close, keyboard focus, and the Pause motion control. The site respects the operating system's reduced-motion preference. The original gallery photos can be inserted once supplied as files; the dancing illustration currently uses a gentle sway rather than articulated character animation.
+Check desktop and mobile layouts, the three Hindi event cards, gallery opening and previous/next controls, Escape to close, keyboard focus, and the Pause motion control. The site respects the operating system's reduced-motion preference. The gallery opens the original photographs in an accessible lightbox; the dancing illustration currently uses a gentle sway rather than articulated character animation.
 
 ## Background effects and music
 
