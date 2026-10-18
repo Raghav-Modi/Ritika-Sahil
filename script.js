@@ -36,7 +36,7 @@ dialog.addEventListener('keydown', event => {
 });
 
 // Deterministic placement keeps the decorations stable between page loads.
-document.querySelectorAll('.hero, .welcome, .celebrations, .gallery-section, .blessings').forEach((section, sectionIndex) => {
+document.querySelectorAll('.hero, .welcome, .celebrations, .gallery-section, .blessings, #envelope-screen').forEach((section, sectionIndex) => {
   const layer = document.createElement('div');
   layer.className = 'star-layer';
   layer.setAttribute('aria-hidden', 'true');
@@ -122,7 +122,7 @@ envelopeScreen.hidden = false;
 invitationContent.inert = true;
 document.documentElement.classList.add('envelope-closed');
 openEnvelope.focus({ preventScroll: true });
-openEnvelope.addEventListener('click', () => {
+envelopeScreen.addEventListener('click', () => {
   if (invitationOpened) return;
   invitationOpened = true;
   // Call play synchronously within this trusted click, before any animation wait.
