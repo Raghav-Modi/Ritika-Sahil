@@ -28,6 +28,6 @@ The opening envelope blocks background interaction until opened and moves keyboa
 
 - Bhajan Sandhya: Sunday, 15 November 2026, 5 PM; Priti Bhoj at 7:30 PM. Gaudham, Mata Mansa Devi Gaushala, Panchkula.
 - Sunehri Shaam: Thursday, 19 November 2026; Haldi at 3 PM, Mehendi at 4 PM, Sangeet at 7 PM. Raghav Hospital, Baltana.
-- Vivah: Saturday, 21 November 2026; Baraat at 2 PM, Varmala at 3 PM, Phere at 5 PM, Priti Bhoj at 7 PM. Red Bishop Convention Hall, Sector 1, Panchkula.
+- Vivah: Saturday, 21 November 2026; Baraat at 2 PM, Varmala at 3:30 PM, Phere at 5 PM, Priti Bhoj at 7 PM. Red Bishop Convention Hall, Sector 1, Panchkula.
 
 Gallery captions are removed and frames use gold ornamental borders.
