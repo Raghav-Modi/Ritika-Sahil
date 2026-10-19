@@ -20,7 +20,7 @@ Check desktop and mobile layouts, the three Hindi event cards, gallery opening a
 
 ## Background effects and music
 
-Soft floating gold stars decorate the invitation and follow the Pause motion control and reduced-motion preference. The local `assets/wedding-flute.mp3` is the user-supplied Namo Namo flute cover, looped quietly. A maroon-and-gold envelope opens the invitation and starts the music within the visitor’s tap or keyboard activation; a fixed Play music / Mute music control remains available. Muting pauses playback and is remembered in session storage when supported. No external audio service is required.
+Soft floating gold stars decorate the invitation and follow the Pause motion control and reduced-motion preference. The local `assets/wedding-flute-trimmed.mp3` is the user-supplied Namo Namo flute cover, looped quietly. A maroon-and-gold envelope opens the invitation and starts the music within the visitor’s tap or keyboard activation; a fixed Play music / Mute music control remains available. Muting pauses playback and is remembered in session storage when supported. No external audio service is required.
 
 The opening envelope blocks background interaction until opened and moves keyboard focus into the invitation afterward. Its opening animation respects reduced-motion settings. A previous session mute preference is retained. Without JavaScript the envelope stays hidden and the invitation remains accessible.
 
@@ -31,3 +31,5 @@ The opening envelope blocks background interaction until opened and moves keyboa
 - Vivah: Saturday, 21 November 2026; Baraat at 2 PM, Varmala at 3:30 PM, Phere at 5 PM, Priti Bhoj at 7 PM. Red Bishop Convention Hall, Sector 1, Panchkula.
 
 Gallery captions are removed and frames use gold ornamental borders.
+
+The background track is trimmed at 3:01.4, at the pause preceding the final promotional segment, with a two-second fade-out. The original uploaded MP3 remains preserved in assets/wedding-flute.mp3.
