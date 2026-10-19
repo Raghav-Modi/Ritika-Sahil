@@ -16,7 +16,7 @@ The page uses `index.html`, `style.css`, `script.js`, and local images in `asset
 
 ## Review
 
-Check desktop and mobile layouts, the three Hindi event cards, gallery opening and previous/next controls, Escape to close, keyboard focus, and the Pause motion control. The site respects the operating system's reduced-motion preference. The gallery opens the original photographs in an accessible lightbox; the dancing illustration currently uses a gentle sway rather than articulated character animation.
+Check desktop and mobile layouts, the four Hindi event cards, gallery opening and previous/next controls, Escape to close, keyboard focus, and the Pause motion control. The site respects the operating system's reduced-motion preference. The gallery opens the original photographs in an accessible lightbox; the dancing illustration currently uses a gentle sway rather than articulated character animation.
 
 ## Background effects and music
 
@@ -27,8 +27,9 @@ The opening envelope blocks background interaction until opened and moves keyboa
 ## Celebration schedule
 
 - Bhajan Sandhya: Sunday, 15 November 2026, 5 PM; Priti Bhoj at 7:30 PM. Gaudham, Mata Mansa Devi Gaushala, Panchkula.
-- Sunehri Shaam: Thursday, 19 November 2026; Haldi at 3 PM, Mehendi at 4 PM, Sangeet at 7 PM. Raghav Hospital, Baltana.
-- Vivah: Saturday, 21 November 2026; Baraat at 2 PM, Varmala at 3:30 PM, Phere at 5 PM, Priti Bhoj at 7 PM. Red Bishop Convention Hall, Sector 1, Panchkula.
+- Sunehri Shaam: Thursday, 19 November 2026; Sangeet at 4 PM, Priti Bhoj at 7:30 PM. Raghav Hospital, Baltana.
+- Bhaat–Mandhaa: Friday, 20 November 2026; Bhaat at 10 AM, Mandhaa at 11:30 AM, Priti Bhoj from 12:30 PM. Raghav Hospital, Baltana.
+- Vivah: Saturday, 21 November 2026; Baraat at 2 PM, Varmala at 3:30 PM, Phere at 5 PM, Priti Bhoj at 7 PM, Vidai at 10 PM. Red Bishop Convention Hall, Sector 1, Panchkula.
 
 Gallery captions are removed and frames use gold ornamental borders.
 
